@@ -23,6 +23,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.dateStartEnd$.subscribe((dates: DateModel) => {
+      const {dateStart, dateEnd} = dates;
+      this.myForm.setValue({dateStart, dateEnd})
+    });
   }
 
   initForm() {
@@ -30,11 +34,25 @@ export class FormComponent implements OnInit {
       dateStart: new FormControl('', Validators.required),
       dateEnd: new FormControl('', Validators.required),
     },
-      // {validators: this.periodValidator}
+      {validators: this.periodValidator}
       );
   }
 
   submit() {
     this.store.dispatch(new dataActions.ChangeStartEndDate(this.myForm.value));
+  }
+
+  periodValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+    const dateStart = new Date(control.get('dateStart').value).getTime();
+    const dateEnd = new Date(control.get('dateEnd').value).getTime();
+    const period = dateEnd - dateStart;
+
+    return period < 0 ? {periodValidation: true} : null;
+  }
+
+  checkTouched() {
+    const controls = this.myForm.controls;
+    return Object.keys(controls)
+      .every(controlName => controls[controlName].touched);
   }
 }
