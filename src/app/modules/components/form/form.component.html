@@ -1,0 +1,28 @@
+<div class="centerBlock">
+<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+  <div class="form-group">
+    <label>Start date</label>
+    <input type="date" class="form-control" name="startDate"  />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['startDate'].invalid && myForm.controls['startDate'].touched">
+      No date
+    </div>
+  </div>
+  <div class="form-group">
+    <label>End date</label>
+    <input type="date" class="form-control" name="endDate" />
+
+    <div class="alert alert-danger"
+         *ngIf="myForm.controls['endDate'].invalid && myForm.controls['endDate'].touched">
+      No date
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default" [disabled]="myForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>
+</div>
