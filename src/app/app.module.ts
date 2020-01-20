@@ -29,7 +29,7 @@ import {reducer} from './modules/store/reducers/data.reducer';
     StoreModule.forRoot({
       storeData: reducer
     }),
-    EffectsModule.forRoot([DataEffects])
+    // EffectsModule.forRoot([DataEffects])
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

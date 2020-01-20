@@ -22,6 +22,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.store);
     this.initForm();
     this.dateStartEnd$.subscribe((dates: DateModel) => {
       const {dateStart, dateEnd} = dates;
@@ -40,6 +41,7 @@ export class FormComponent implements OnInit {
 
   submit() {
     this.store.dispatch(new dataActions.ChangeStartEndDate(this.myForm.value));
+    console.log(this.myForm.value)
   }
 
   periodValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {

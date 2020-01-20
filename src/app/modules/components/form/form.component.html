@@ -2,19 +2,19 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
   <div class="form-group">
     <label>Start date</label>
-    <input type="date" class="form-control" name="startDate"  />
+    <input type="date" class="form-control" name="dateStart"  formControlName="dateStart"/>
 
     <div class="alert alert-danger"
-         *ngIf="myForm.controls['startDate'].invalid && myForm.controls['startDate'].touched">
+         *ngIf="myForm.controls['dateStart'].invalid && myForm.controls['dateStart'].touched">
       No date
     </div>
   </div>
   <div class="form-group">
     <label>End date</label>
-    <input type="date" class="form-control" name="endDate" />
+    <input type="date" class="form-control" name="dateEnd" formControlName="dateEnd"/>
 
     <div class="alert alert-danger"
-         *ngIf="myForm.controls['endDate'].invalid && myForm.controls['endDate'].touched">
+         *ngIf="myForm.controls['dateEnd'].invalid && myForm.controls['dateEnd'].touched">
       No date
     </div>
   </div>
@@ -23,6 +23,9 @@
     <button class="btn btn-default" [disabled]="myForm.invalid">
       Submit
     </button>
+    <div class="alert alert-danger" *ngIf="myForm.invalid && checkTouched()">
+    Сheck that Date end is later than Date start
+    </div>
   </div>
 </form>
 </div>

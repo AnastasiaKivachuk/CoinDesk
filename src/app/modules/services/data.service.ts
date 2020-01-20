@@ -18,6 +18,13 @@ export class DataService {
   takeDates() {
     // const {dateStart, dateEnd} = dates;
     // return this.http.get(`${this.mainUrl}feed?start=${dateStart}&end=${dateEnd}`);
-    return this.http.get(`${this.mainUrl}feed?start=2017-12-31&end=2018-11-02`);
+    return this.http.get(`${this.mainUrl}feed?start=2019-12-10&end=2020-01-10`);
+  }
+
+
+  getMargins = (marginLeft: number, marginTop: number): string => `translate(${marginLeft}, ${marginTop})`;
+
+  getTooltipXPosition(mousePosition, cartSize) {
+    return mousePosition > cartSize / 2 ? mousePosition - 210 : mousePosition + 10;
   }
 }

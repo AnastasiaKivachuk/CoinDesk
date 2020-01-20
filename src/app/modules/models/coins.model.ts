@@ -1,4 +1,4 @@
-export interface Coins {
-  date: string;
-  value: string;
-}
+// export interface Coins {
+//   day: string;
+//   value: string;
+// }

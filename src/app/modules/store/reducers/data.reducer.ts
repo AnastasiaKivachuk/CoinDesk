@@ -24,7 +24,7 @@ export function reducer(state: State = initialState, action: StoreDataAction.Act
         ...state,
         isFetching: false,
         error: action.payload,
-        selectedDate: null
+        // selectedDate: null
       };
 
     case StoreDataAction.SUCCESS:
@@ -32,7 +32,7 @@ export function reducer(state: State = initialState, action: StoreDataAction.Act
         ...state,
         isFetching: false,
         data: action.payload,
-        selectedDate: action.payload ? Object.keys(action.payload)[0] : ''
+        // selectedDate: action.payload ? Object.keys(action.payload)[0] : ''
       };
 
     case StoreDataAction.START_END_DATE:

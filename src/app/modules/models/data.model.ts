@@ -1,5 +1,5 @@
-import {Coins} from './coins.model';
-
-export interface Data {
-  [key: string]: Coins[];
-}
+// import {Coins} from './coins.model';
+//
+// export interface Data {
+//   [key: string]: Coins[];
+// }

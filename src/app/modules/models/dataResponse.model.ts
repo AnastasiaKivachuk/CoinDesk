@@ -1,5 +1,5 @@
-import {Data} from './data.model';
-
-export interface DataResponse {
-  bpi: Data;
-}
+// import {Data} from './data.model';
+//
+// export interface DataResponse {
+//   bpi: Data;
+// }

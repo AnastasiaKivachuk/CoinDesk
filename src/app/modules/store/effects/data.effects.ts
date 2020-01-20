@@ -8,7 +8,7 @@ import * as dataActions from '../action/data.action';
 import {AppState} from '../app.state';
 import {objDate} from '../selector/data.selectors';
 import {DataService} from '../../services';
-import {DataResponse, Coins, Data} from '../../models';
+// import {DataResponse, Coins, Data} from '../../models';
 
 @Injectable({
   providedIn: 'root'
@@ -28,26 +28,26 @@ export class DataEffects {
     mapTo(new dataActions.Fetch()),
   );
 
-  @Effect()
-  getData$ = this.actions$.pipe(
-    ofType(dataActions.FETCH),
-    withLatestFrom(this.store.select(objDate)),
-    switchMap((dates): Actions => this.rootService.takeDates()
-      .pipe(
-        map((response: DataResponse) => {
-          const dataObject = Object.keys(response.bpi)
-            .reduce((data: Data, date: string) =>
-              Object.assign(data, {
-                [date]: response.bpi[date]
-                  .map((coins: Coins) => {
-                    const {date, value} = coins;
-                    return {date, value};
-                  })
-              }), {});
-          return new dataActions.Success(dataObject);
-        }),
-        catchError(() => of(new dataActions.Error('some error')))
-      )
-    ),
-  );
+  // @Effect()
+  // getData$ = this.actions$.pipe(
+  //   ofType(dataActions.FETCH),
+  //   withLatestFrom(this.store.select(objDate)),
+  //   switchMap((dates): Actions => this.rootService.takeDates()
+  //     .pipe(
+  //       map((response: DataResponse) => {
+  //         const dataObject = Object.keys(response.bpi)
+  //           .reduce((data: Data, date: string) =>
+  //             Object.assign(data, {
+  //               [date]: response.bpi[date]
+  //                 .map((coins: Coins) => {
+  //                   const {day, value} = coins;
+  //                   return {day, value};
+  //                 })
+  //             }), {});
+  //         return new dataActions.Success(dataObject);
+  //       }),
+  //       catchError(() => of(new dataActions.Error('some error')))
+  //     )
+  //   ),
+  // );
 }
