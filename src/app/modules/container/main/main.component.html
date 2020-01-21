@@ -1,9 +1,9 @@
 <!--<app-form></app-form>-->
 
 
-<!--<ng-container *appLet="objAllData | async as objAllD">-->
-<!--  <app-table ></app-table>-->
-<!--  <ng-template #table>-->
+<ng-container *appLet="objAllData | async as objAllD">
+  <app-table *ngIf="objAllD; else table" [data]="objAllData"></app-table>
+  <ng-template #table>
     <app-form></app-form>
-<!--  </ng-template>-->
-<!--</ng-container>-->
+  </ng-template>
+</ng-container>

@@ -1,0 +1,10 @@
+<button
+  type="submit"
+  class="enter"
+  [disabled]="disabled||showSpinner" >
+  Submit
+  <div class="spinner-wrp">
+    <app-spinner-for-button *ngIf="showSpinner"></app-spinner-for-button>
+  </div>
+</button>
+

@@ -12,7 +12,7 @@ export const objDate = createSelector(
   fromData.getStartEndDate,
 );
 
-export const getDate = createSelector(
+export const getAllData = createSelector(
   getState,
   fromData.getData,
 );
@@ -22,13 +22,3 @@ export const getDataStatus = createSelector(
   fromData.getStatus,
 );
 
-// export const getDateSelected = createSelector(
-//   getState,
-//   fromData.getSelectedDate,
-// );
-//
-// export const getFilteredData = createSelector(
-//   getDateSelected,
-//   getDate,
-//   (key = '', obj = {}) => obj ? obj[key] : null
-// );

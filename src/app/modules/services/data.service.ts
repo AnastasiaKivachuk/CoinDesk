@@ -15,10 +15,10 @@ export class DataService {
               private route: ActivatedRoute,
               private http: HttpClient) { }
 
-  takeDates() {
-    // const {dateStart, dateEnd} = dates;
-    // return this.http.get(`${this.mainUrl}feed?start=${dateStart}&end=${dateEnd}`);
-    return this.http.get(`${this.mainUrl}feed?start=2019-12-10&end=2020-01-10`);
+  takeDates(dates) {
+    const {dateStart, dateEnd} = dates;
+    return this.http.get(`${this.mainUrl}feed?start=${dateStart}&end=${dateEnd}`);
+    // return this.http.get(`${this.mainUrl}feed?start=2019-12-10&end=2020-01-10`);
   }
 
 

@@ -11,25 +11,38 @@ import {DataService} from './modules/services';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {DataEffects} from './modules/store/effects';
+// import {DataEffects} from './modules/store/effects';
 import {reducer} from './modules/store/reducers/data.reducer';
+import {ButtonWithSpinnerComponent, SpinnerForButtonComponent} from './modules/components/button-with-spinner';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {DataEffects} from './modules/store/effects';
+import {LetDirective} from './modules/directives';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     TableComponent,
-    MainComponent
+    MainComponent,
+    ButtonWithSpinnerComponent,
+    SpinnerForButtonComponent,
+    LetDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    EffectsModule,
     HttpClientModule,
     StoreModule.forRoot({
       storeData: reducer
     }),
-    // EffectsModule.forRoot([DataEffects])
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+    }),
+    EffectsModule.forRoot([DataEffects])
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

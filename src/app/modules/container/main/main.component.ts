@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppState, dataSelectors} from '../../store';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  public objAllData: Observable<{}>;
 
-  constructor() { }
+  constructor(
+    private store: Store<AppState>
+  ) {
 
+    this.objAllData = store.select(dataSelectors.getAllData);
+  }
   ngOnInit() {
+    // this.objAllData.subscribe(data: any =>{})
+    // console.log(data)
+    // )
   }
 
 }

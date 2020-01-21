@@ -5,7 +5,7 @@ const initialState: State = {
     isFetching: false,
     error: '',
     data: null,
-    startEndDate: {dateStart: null, dateEnd: null},
+    startEndDate: {dateStart: null, dateEnd: null}
   }
 ;
 
@@ -16,23 +16,21 @@ export function reducer(state: State = initialState, action: StoreDataAction.Act
         ...state,
         isFetching: true,
         error: '',
-        data: null,
+        data: null
       };
 
     case StoreDataAction.ERROR:
       return {
         ...state,
         isFetching: false,
-        error: action.payload,
-        // selectedDate: null
+        error: action.payload
       };
 
     case StoreDataAction.SUCCESS:
       return {
         ...state,
         isFetching: false,
-        data: action.payload,
-        // selectedDate: action.payload ? Object.keys(action.payload)[0] : ''
+        data: action.payload
       };
 
     case StoreDataAction.START_END_DATE:
@@ -40,7 +38,6 @@ export function reducer(state: State = initialState, action: StoreDataAction.Act
         ...state,
         startEndDate: action.payload
       };
-
 
     default:
       return state;
