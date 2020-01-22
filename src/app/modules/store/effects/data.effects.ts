@@ -8,7 +8,6 @@ import * as dataActions from '../action/data.action';
 import {AppState} from '../app.state';
 import {objDate} from '../selector/data.selectors';
 import {DataService} from '../../services';
-// import {DataResponse, Asteroid, Data} from '../../models';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +31,7 @@ export class DataEffects {
   getData$ = this.actions$.pipe(
     ofType(dataActions.FETCH),
     withLatestFrom(this.store.select(objDate)),
-    switchMap((dates): Actions => this.rootService.takeDates(dates)
+    switchMap((dates): Actions => this.rootService.takeDates(dates[1])
       .pipe(
         map((response: any) => {
           const dataObject = Object.keys(response.bpi).map(item2 => {

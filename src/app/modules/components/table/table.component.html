@@ -1,4 +1,5 @@
-<div class="table">
+<div class="table" *appLet="data">
+
   <a  class="buttonTryAgain" (click)="openForm()">TRY AGAIN</a>
 
       <div
@@ -9,7 +10,7 @@
       'left': description.x + 'px'
     }"
       >
-        <h1>{{description.name}}</h1>
+        <h1>{{description.day}}</h1>
         <span>{{description.value}}</span>
       </div>
   <svg #svg [attr.width]="'100%'" [attr.height]="'100%'" (resized)="buildTable()">

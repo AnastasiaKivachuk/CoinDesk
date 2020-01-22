@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 
 import {environment} from '../../../environments/environment';
 
@@ -17,8 +16,7 @@ export class DataService {
 
   takeDates(dates) {
     const {dateStart, dateEnd} = dates;
-    return this.http.get(`${this.mainUrl}feed?start=${dateStart}&end=${dateEnd}`);
-    // return this.http.get(`${this.mainUrl}feed?start=2019-12-10&end=2020-01-10`);
+    return this.http.get(`${this.mainUrl}start=${dateStart}&end=${dateEnd}`);
   }
 
 

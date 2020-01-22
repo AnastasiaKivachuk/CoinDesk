@@ -2,7 +2,7 @@
 <form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
   <div class="form-group">
     <label>Start date</label>
-    <input type="date" class="form-control" name="dateStart"  formControlName="dateStart"/>
+    <input type="date" class="form-control" name="dateStart"  formControlName="dateStart" #dateStart/>
 
     <div class="alert alert-danger"
          *ngIf="myForm.controls['dateStart'].invalid && myForm.controls['dateStart'].touched">
@@ -11,7 +11,7 @@
   </div>
   <div class="form-group">
     <label>End date</label>
-    <input type="date" class="form-control" name="dateEnd" formControlName="dateEnd"/>
+    <input type="date" class="form-control" name="dateEnd" formControlName="dateEnd" #dateEnd/>
 
     <div class="alert alert-danger"
          *ngIf="myForm.controls['dateEnd'].invalid && myForm.controls['dateEnd'].touched">
@@ -23,7 +23,7 @@
     <app-button-with-spinner [disabled]="myForm.invalid"
                              [showSpinner]="isFetching$ | async"></app-button-with-spinner>
     <div class="alert alert-danger" *ngIf="myForm.invalid && checkTouched()">
-    Сheck that Date end is later than Date start
+      Сheck that the start date is less than the end date and also the end date is less than today
     </div>
   </div>
 </form>
